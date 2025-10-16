@@ -5,11 +5,15 @@ from database import get_connection, init_db
 from werkzeug.utils import secure_filename
 from functools import wraps
 from flask_cors import CORS
+from dotenv import load_dotenv
 import os
+
+# Load environment variables
+load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = 'ahmed'  # Required for sessions
+app.secret_key = os.environ.get('SECRET_KEY', 'ahmed')  # Use env variable or default
 app.config['TEMPLATES_AUTO_RELOAD'] = True  # Auto-reload templates
 
 # Enable CORS for API endpoints
