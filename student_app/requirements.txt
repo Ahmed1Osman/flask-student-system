@@ -1,0 +1,4 @@
+Flask
+Werkzeug
+gunicorn
+sqlite3-binary
